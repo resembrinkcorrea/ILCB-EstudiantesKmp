@@ -1,7 +1,6 @@
 package pe.lecordonbleu.institutoestudiante.presentation.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -13,12 +12,6 @@ import org.koin.compose.viewmodel.koinViewModel
 import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginScreen
 import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginViewModel
 import pe.lecordonbleu.institutoestudiante.presentation.screens.onboarding.OnBoardingScreen
-
-private fun NavBackStackEntry.argInt(key: String): Int =
-    arguments?.getInt(key) ?: 0
-
-private fun NavBackStackEntry.argString(key: String): String =
-    arguments?.getString(key) ?: ""
 
 @Composable
 fun Navigation(
