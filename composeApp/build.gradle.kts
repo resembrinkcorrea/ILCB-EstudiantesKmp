@@ -49,17 +49,24 @@ kotlin {
             // Koin - Android
             implementation(libs.koin.android)
             implementation(libs.koin.androidx.compose)
+
+            implementation("com.microsoft.identity.client:msal:5.2.0") {
+                exclude(group = "com.microsoft.device.display")
+            }
         }
 
         commonMain.dependencies {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
+            implementation(compose.material)
             implementation(libs.compose.ui)
             implementation(libs.compose.components.resources)
             implementation(libs.compose.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodelCompose)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+
+            api(compose.materialIconsExtended)
 
             // Navigation
             implementation(libs.navigation.compose)

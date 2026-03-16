@@ -5,8 +5,11 @@ import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module
-import pe.lecordonbleu.institutoestudiante.data.storage.SettingsStorage
-import pe.lecordonbleu.institutoestudiante.data.storage.getSettingsStorage
+import pe.lecordonbleu.institutoestudiante.data.repository.LoginRepositoryImpl
+import pe.lecordonbleu.institutoestudiante.SettingsStorage
+import pe.lecordonbleu.institutoestudiante.getSettingsStorage
+import pe.lecordonbleu.institutoestudiante.domain.repository.LoginRepository
+import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginViewModel
 
 fun appModule() = module {
 
@@ -23,6 +26,7 @@ fun appModule() = module {
 
     single<SettingsStorage> { getSettingsStorage() }
 
-    // ViewModels se agregan aquí a medida que se crean
-    // factory { LoginViewModel(get()) }
+    single<LoginRepository> { LoginRepositoryImpl(get()) }
+
+    factory { LoginViewModel(get()) }
 }

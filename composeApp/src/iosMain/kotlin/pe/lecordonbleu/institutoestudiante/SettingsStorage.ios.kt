@@ -1,7 +1,5 @@
 package pe.lecordonbleu.institutoestudiante
 
-import pe.lecordonbleu.institutoestudiante.data.storage.SettingsStorage
-import pe.lecordonbleu.institutoestudiante.data.storage.getSettingsStorage
 import platform.Foundation.NSUserDefaults
 
 actual fun getSettingsStorage(): SettingsStorage = IOSSettingsStorage()

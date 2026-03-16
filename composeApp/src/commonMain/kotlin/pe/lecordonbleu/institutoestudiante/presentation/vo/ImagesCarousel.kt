@@ -1,7 +1,8 @@
 package pe.lecordonbleu.institutoestudiante.presentation.vo
 
-import ilcb_estudianteskmp.composeapp.generated.resources.Res
-import ilcb_estudianteskmp.composeapp.generated.resources.unicampusa
+
+import ilcbintranetkmp.composeapp.generated.resources.Res
+import ilcbintranetkmp.composeapp.generated.resources.unicampusa
 
 object ImagesCarousel {
     val images = listOf(

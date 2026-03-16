@@ -1,4 +1,4 @@
-package pe.lecordonbleu.institutoestudiante.data.storage
+package pe.lecordonbleu.institutoestudiante
 
 interface SettingsStorage {
     fun putString(key: String, value: String)

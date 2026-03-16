@@ -1,0 +1,26 @@
+PODS:
+  - composeApp (1.0.0):
+    - MSAL (= 2.7.0)
+  - MSAL (2.7.0):
+    - MSAL/app-lib (= 2.7.0)
+  - MSAL/app-lib (2.7.0)
+
+DEPENDENCIES:
+  - composeApp (from `../composeApp`)
+  - MSAL (= 2.7.0)
+
+SPEC REPOS:
+  trunk:
+    - MSAL
+
+EXTERNAL SOURCES:
+  composeApp:
+    :path: "../composeApp"
+
+SPEC CHECKSUMS:
+  composeApp: ffd5091544d86c2a69bcdb73bbd6f108e56420ee
+  MSAL: 14e8c5443ea11d888216ddc66f071f0d3b688fc3
+
+PODFILE CHECKSUM: 4352035b816143000e823947347d096a4d37735f
+
+COCOAPODS: 1.16.2

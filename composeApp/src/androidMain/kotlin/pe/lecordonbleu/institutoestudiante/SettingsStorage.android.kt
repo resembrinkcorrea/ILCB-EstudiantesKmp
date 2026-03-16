@@ -3,8 +3,6 @@ package pe.lecordonbleu.institutoestudiante
 import android.content.Context
 import android.content.SharedPreferences
 import org.koin.core.context.GlobalContext
-import pe.lecordonbleu.institutoestudiante.data.storage.SettingsStorage
-import pe.lecordonbleu.institutoestudiante.data.storage.getSettingsStorage
 
 class AndroidSettingsStorage(private val context: Context) : SettingsStorage {
     private val sharedPreferences: SharedPreferences =

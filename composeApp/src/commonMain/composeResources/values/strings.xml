@@ -3,11 +3,11 @@
     <string name="recordarme">Recordarme</string>
     <string name="email_hint">Email o Usuario</string>
     <string name="contrasenha">CONTRASEÑA</string>
-    <string name="app_name">ILCB Docentes</string>
-    <string name="app_title">Intranet Docentes</string>
+    <string name="app_name">ILCB Estudiantes</string>
+    <string name="app_title">Intranet Estudiantes</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="menu">Menú</string>
-    <string name="perfil_login">Docentes</string>
+    <string name="perfil_login">Estudiantes</string>
 
 
 </resources>

@@ -4,9 +4,15 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
+import org.koin.compose.viewmodel.koinViewModel
+import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginScreen
+import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginViewModel
+import pe.lecordonbleu.institutoestudiante.presentation.screens.onboarding.OnBoardingScreen
 
 private fun NavBackStackEntry.argInt(key: String): Int =
     arguments?.getInt(key) ?: 0
@@ -24,15 +30,22 @@ fun Navigation(
     ) {
 
         composable("/onboarding") {
-            // OnBoardingScreen(navController)
+            OnBoardingScreen(navController)
         }
 
         composable("/login") {
-            // LoginScreen(navController)
+            val vm: LoginViewModel = koinViewModel()
+            LoginScreen(vm, navController)
         }
 
-        composable("/home") {
-            // HomeScreen(navController)
+        composable(
+            route = "/home/{id_sistema}/{id_perfil}",
+            arguments = listOf(
+                navArgument("id_sistema") { type = NavType.IntType },
+                navArgument("id_perfil") { type = NavType.IntType }
+            )
+        ) {
+            // TODO: HomeScreen(navController)
         }
 
     }
