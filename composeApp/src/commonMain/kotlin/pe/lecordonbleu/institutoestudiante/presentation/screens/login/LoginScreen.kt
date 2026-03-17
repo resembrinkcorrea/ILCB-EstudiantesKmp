@@ -77,10 +77,10 @@ fun LoginScreen(
 
     var rstaLoginMicrosoft by remember { mutableStateOf(0) }
     var tipoLogin by remember { mutableStateOf(0) }
-    var sistema = 11
+    var sistema = 10
     var flagLogueo by remember { mutableStateOf(0) }
     var idUneg by remember { mutableStateOf(2) }
-    var tipoConexion by remember { mutableStateOf("APP ESTUDIANTE") }
+    var tipoConexion by remember { mutableStateOf("ANDROID Estudiante") }
     var ipConexion by remember { mutableStateOf("") }
     var lastPwd by remember { mutableStateOf("") }
 
@@ -253,7 +253,8 @@ fun LoginScreen(
                                 Text(
                                     "Ingreso con correo",
                                     fontSize = 16.sp,
-                                    fontWeight = FontWeight.Bold
+                                    fontWeight = FontWeight.Bold,
+                                    color = colors.textColor
                                 )
                             }
                         }
