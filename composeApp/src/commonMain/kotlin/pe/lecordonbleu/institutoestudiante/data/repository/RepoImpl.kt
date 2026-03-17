@@ -10,20 +10,18 @@ import kotlinx.serialization.json.Json
 import pe.lecordonbleu.institutoestudiante.data.remote.dto.ResponseLoginUser
 import pe.lecordonbleu.institutoestudiante.domain.model.UserLoginRequest
 import pe.lecordonbleu.institutoestudiante.domain.model.UsuarioCorreoRequest
-import pe.lecordonbleu.institutoestudiante.domain.repository.LoginRepository
+import pe.lecordonbleu.institutoestudiante.core.config.Constantes
+import pe.lecordonbleu.institutoestudiante.domain.repository.Repository
 
-const val BASE_URL = "http://sslcbpopen.eastus2.cloudapp.azure.com:8080/saa-rest/webresources"
-const val ID_UNEG = 2
-
-class LoginRepositoryImpl(private val httpClient: HttpClient) : LoginRepository {
+class RepoImpl(private val httpClient: HttpClient) : Repository {
 
     private val json = Json { ignoreUnknownKeys = true }
 
-    override suspend fun getDataUsuario(request: UserLoginRequest): List<ResponseLoginUser> {
+    override suspend fun getDataUsuario(userLoginRequest: UserLoginRequest): List<ResponseLoginUser> {
         return try {
-            val response = httpClient.post("$BASE_URL/login/logueoGeneral") {
+            val response = httpClient.post("${Constantes.BASE_ROOT_INTRANET}${Constantes.URL_BASE_GENERAL}login/logueoGeneral") {
                 contentType(ContentType.Application.Json)
-                setBody(request)
+                setBody(userLoginRequest)
             }
             val responseBody = response.body<String>()
             println("JSON recibido: $responseBody")
@@ -34,11 +32,11 @@ class LoginRepositoryImpl(private val httpClient: HttpClient) : LoginRepository 
         }
     }
 
-    override suspend fun getDataUsuarioCorreo(request: UsuarioCorreoRequest): List<ResponseLoginUser> {
+    override suspend fun getDataUsuarioCorreo(userRequest: UsuarioCorreoRequest): List<ResponseLoginUser> {
         return try {
-            val response = httpClient.post("$BASE_URL/logueoCorreoColaborador") {
+            val response = httpClient.post("${Constantes.BASE_ROOT_INTRANET}${Constantes.URL_BASE_GENERAL}logueoCorreoColaborador") {
                 contentType(ContentType.Application.Json)
-                setBody(request)
+                setBody(userRequest)
             }
             val responseBody = response.body<String>()
             listOf(json.decodeFromString<ResponseLoginUser>(responseBody))

@@ -1,6 +1,7 @@
 package pe.lecordonbleu.institutoestudiante.presentation.navigation
 
 import androidx.compose.runtime.Composable
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -8,7 +9,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import org.koin.compose.viewmodel.koinViewModel
+import io.ktor.client.HttpClient
+import org.koin.compose.koinInject
+import pe.lecordonbleu.institutoestudiante.data.repository.RepoImpl
 import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginScreen
 import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginViewModel
 import pe.lecordonbleu.institutoestudiante.presentation.screens.onboarding.OnBoardingScreen
@@ -27,7 +30,8 @@ fun Navigation(
         }
 
         composable("/login") {
-            val vm: LoginViewModel = koinViewModel()
+            val httpClient = koinInject<HttpClient>()
+            val vm: LoginViewModel = viewModel { LoginViewModel(RepoImpl(httpClient)) }
             LoginScreen(vm, navController)
         }
 
