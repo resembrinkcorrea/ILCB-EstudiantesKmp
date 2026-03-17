@@ -33,7 +33,28 @@ Este proyecto sigue una separación estricta de responsabilidades para garantiza
 - **Storage**: SettingsStorage (implementación expect/actual para persistencia local).
 - **Resources**: Sistema nativo de KMP (`composeResources`) para imágenes, strings y fuentes.
 
+## 🔄 Patrones de ViewModel (Coexisten en el proyecto)
+Hay dos patrones válidos. Respetar siempre el que ya se usó en cada módulo — no cambiar ni "mejorar" el patrón existente.
+
+- **Patrón Manual** — El ViewModel crea su repo directamente, sin Koin:
+    ```kotlin
+    val vm: LoginMicrosoftViewModel = viewModel {
+        LoginMicrosoftViewModel(RepoImpl(httpClient))
+    }
+    ```
+- **Patrón Koin** — El ViewModel se inyecta desde el módulo Koin:
+    ```kotlin
+    val vm: AsistenciaEstudianteViewModel = koinViewModel()
+    ```
+
+## 🗄 Repositorio Centralizado
+- Existe **un único** `AppRepository` (interfaz) y `AppRepositoryImpl` (implementación Ktor) para todos los ViewModels inyectados con Koin.
+- Los ViewModels manuales usan `RepoImpl` directamente (sin interfaz Koin).
+- **No crear repositorios por módulo** — agregar los métodos nuevos al `AppRepository` centralizado.
+
 ## 📝 Reglas de Interacción con el Desarrollador
 1. **Validación previa**: Antes de crear archivos o carpetas, proponer la estructura al usuario.
 2. **Respeto al Estilo**: Seguir el patrón de código proporcionado en los ejemplos del usuario (manejo de validaciones `flag_val`, etc.).
 3. **Concisión**: Explicaciones técnicas "al hueso" (directas al punto).
+4. **Respetar patrones existentes**: Si un módulo ya usa ViewModel manual o Koin, mantener ese patrón sin cambiarlo.
+5. **No modificar código funcional**: Nunca cambiar código existente o portado de otro proyecto sin que el usuario lo pida explícitamente. Al portar código entre proyectos (ej. Docentes → Estudiantes), preservar la estructura y estilo línea por línea — solo adaptar package names, imports y valores app-específicos.

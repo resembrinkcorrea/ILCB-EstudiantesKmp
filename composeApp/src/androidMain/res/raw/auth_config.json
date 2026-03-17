@@ -1,0 +1,15 @@
+{
+  "client_id": "82ed77c0-bc19-4947-8521-90ebeb66b562",
+  "authorization_user_agent": "DEFAULT",
+  "redirect_uri": "msauth.pe.ulcb.cordonbleu://auth",
+  "account_mode": "SINGLE",
+  "authorities": [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADMyOrg",
+        "tenant_id": "59a52635-66c3-4d8a-9dff-478c8f19f50d"
+      }
+    }
+  ]
+}

@@ -7,10 +7,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import pe.lecordonbleu.institutoestudiante.data.remote.dto.ResponseLoginUser
 import pe.lecordonbleu.institutoestudiante.domain.model.UserLoginRequest
-import pe.lecordonbleu.institutoestudiante.domain.repository.LoginRepository
+import pe.lecordonbleu.institutoestudiante.domain.repository.Repository
 import pe.lecordonbleu.institutoestudiante.presentation.vo.ResourceUiState
 
-class LoginViewModel(private val repo: LoginRepository) : ViewModel() {
+class LoginViewModel(private val repo: Repository) : ViewModel() {
 
     private val _uiState = MutableStateFlow<ResourceUiState<List<ResponseLoginUser>>>(ResourceUiState.Empty)
     val uiState = _uiState.asStateFlow()
