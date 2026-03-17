@@ -68,6 +68,7 @@ Usada en tarjetas de menú, badges y categorizaciones visuales.
 |-----|-------|-------|-----|
 | Error | `IlcbError` | Rojo alerta | `#D82625` |
 | Error oscuro | `IlcbErrorDark` | Rojo oscuro | `#C62828` |
+| Advertencia | `IlcbWarning` | Ámbar | `#FFA000` |
 | Verde oscuro | `IlcbGreenDark` | Verde botella | `#1B5E20` |
 | Verde medio | `IlcbGreenMid` | Verde | `#2E7D32` |
 | Azul dialog | `IlcbBlueMD` | Azul acento dialogs | `#0D47A1` |

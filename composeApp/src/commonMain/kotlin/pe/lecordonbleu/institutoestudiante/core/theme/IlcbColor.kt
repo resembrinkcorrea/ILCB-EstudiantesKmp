@@ -35,6 +35,7 @@ val IlcbAzulMarca   = Color(0xFF3894F9)
 // --- Status / semantic ---
 val IlcbError       = Color(0xFFD82625)
 val IlcbErrorDark   = Color(0xFFC62828)
+val IlcbWarning     = Color(0xFFFFA000)   // ámbar — advertencias, sincrónica
 val IlcbGreenDark   = Color(0xFF1B5E20)
 val IlcbGreenMid    = Color(0xFF2E7D32)
 val IlcbBlueMD      = Color(0xFF0D47A1)   // dialogs accent blue

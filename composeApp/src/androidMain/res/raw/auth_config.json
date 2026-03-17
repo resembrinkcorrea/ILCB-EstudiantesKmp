@@ -1,14 +1,13 @@
 {
   "client_id" : "e12cac02-0384-4494-8d68-e5c839011e8c",
   "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "msauth.pe.ulcb.cordonbleu://auth",
-  "account_mode" : "SINGLE",
+  "redirect_uri" : "msale12cac02-0384-4494-8d68-e5c839011e8c://auth",
   "authorities" : [
     {
       "type": "AAD",
       "audience": {
-        "type": "AzureADMyOrg",
-        "tenant_id": "59a52635-66c3-4d8a-9dff-478c8f19f50d"
+        "type": "AzureADandPersonalMicrosoftAccount",
+        "tenant_id": "common"
       }
     }
   ]

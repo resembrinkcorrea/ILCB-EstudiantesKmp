@@ -38,7 +38,7 @@
 
                 <data
                     android:host="auth"
-                    android:scheme="msauth.pe.ulcb.cordonbleu" />
+                    android:scheme="msale12cac02-0384-4494-8d68-e5c839011e8c" />
             </intent-filter>
         </activity>
 

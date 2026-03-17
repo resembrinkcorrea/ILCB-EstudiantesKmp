@@ -15,7 +15,9 @@ import org.koin.compose.viewmodel.koinViewModel
 import pe.lecordonbleu.institutoestudiante.data.repository.RepoImpl
 import pe.lecordonbleu.institutoestudiante.presentation.screens.home.HomeScreen
 import pe.lecordonbleu.institutoestudiante.presentation.screens.home.HomeViewModel
+import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginMicrosoftViewModel
 import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginScreen
+import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginScreenMicrosoftView
 import pe.lecordonbleu.institutoestudiante.presentation.screens.login.LoginViewModel
 import pe.lecordonbleu.institutoestudiante.presentation.screens.onboarding.OnBoardingScreen
 
@@ -38,15 +40,21 @@ fun Navigation(
             LoginScreen(vm, navController)
         }
 
+        composable("/loginMicrosoftView") {
+            val httpClient = koinInject<HttpClient>()
+            val vm: LoginMicrosoftViewModel = viewModel { LoginMicrosoftViewModel(RepoImpl(httpClient)) }
+            LoginScreenMicrosoftView(vm, navController)
+        }
+
         composable(
             route = "/home/{id_sistema}/{id_perfil}",
             arguments = listOf(
-                navArgument("id_sistema") { type = NavType.IntType },
-                navArgument("id_perfil") { type = NavType.IntType }
+                navArgument("id_sistema") { type = NavType.StringType },
+                navArgument("id_perfil") { type = NavType.StringType }
             )
         ) { backStackEntry ->
-            val idSistema = backStackEntry.arguments?.getInt("id_sistema") ?: 0
-            val idPerfil = backStackEntry.arguments?.getInt("id_perfil") ?: 0
+            val idSistema = backStackEntry.arguments?.getString("id_sistema")?.toIntOrNull() ?: 0
+            val idPerfil = backStackEntry.arguments?.getString("id_perfil")?.toIntOrNull() ?: 0
             val vm: HomeViewModel = koinViewModel()
             HomeScreen(viewmoModel = vm, navigator = navController, idSistema = idSistema, idPerfil = idPerfil)
         }
