@@ -38,7 +38,7 @@
 
                 <data
                     android:host="auth"
-                    android:scheme="msauth.pe.lecordonbleu.institutoestudiante" />
+                    android:scheme="msauth.pe.ulcb.cordonbleu" />
             </intent-filter>
         </activity>
 

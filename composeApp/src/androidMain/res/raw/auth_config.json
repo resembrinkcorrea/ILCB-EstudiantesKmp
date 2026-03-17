@@ -1,9 +1,9 @@
 {
-  "client_id": "82ed77c0-bc19-4947-8521-90ebeb66b562",
-  "authorization_user_agent": "DEFAULT",
-  "redirect_uri": "msauth.pe.ulcb.cordonbleu://auth",
-  "account_mode": "SINGLE",
-  "authorities": [
+  "client_id" : "e12cac02-0384-4494-8d68-e5c839011e8c",
+  "authorization_user_agent" : "DEFAULT",
+  "redirect_uri" : "msauth.pe.ulcb.cordonbleu://auth",
+  "account_mode" : "SINGLE",
+  "authorities" : [
     {
       "type": "AAD",
       "audience": {
