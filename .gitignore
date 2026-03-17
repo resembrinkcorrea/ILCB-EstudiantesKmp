@@ -3,6 +3,9 @@
 # iOS + Android + Compose
 # ============================
 
+# Claude Code
+.claude/settings.local.json
+
 # Build outputs
 build/
 **/build/
